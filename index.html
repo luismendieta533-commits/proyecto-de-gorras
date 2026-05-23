@@ -10,14 +10,39 @@
 <body>
 
 <header>
-  <h1>Ls Caps</h1>
+  <h1>Urban Caps</h1>
   <p>Tienda premium de gorras</p>
 </header>
+
+<!-- BOTONES FILTRO -->
+
+<div class="filtros">
+
+  <button onclick="filtrar('todas')">
+    Todas
+  </button>
+
+  <button onclick="filtrar('urbanas')">
+    Urbanas
+  </button>
+
+  <button onclick="filtrar('deportivas')">
+    Deportivas
+  </button>
+
+  <button onclick="filtrar('snapback')">
+    Snapback
+  </button>
+
+</div>
+
+<!-- PRODUCTOS -->
 
 <section class="productos">
 
   <!-- GORRA 1 -->
-  <div class="gorra">
+
+  <div class="gorra urbanas">
 
     <img src="https://images.unsplash.com/photo-1575428652377-a2d80e2277fc?q=80&w=1200&auto=format&fit=crop">
 
@@ -27,7 +52,10 @@
 
       <p class="precio">C$700</p>
 
-      <button onclick="agregarCarrito('Gorra Roja',700)">
+      <button
+        type="button"
+        onclick="agregarCarrito('Gorra Roja',700)"
+      >
         Comprar
       </button>
 
@@ -36,7 +64,8 @@
   </div>
 
   <!-- GORRA 2 -->
-  <div class="gorra">
+
+  <div class="gorra deportivas">
 
     <img src="https://images.unsplash.com/photo-1521369909029-2afed882baee?q=80&w=1200&auto=format&fit=crop">
 
@@ -46,7 +75,10 @@
 
       <p class="precio">C$650</p>
 
-      <button onclick="agregarCarrito('Gorra Negra',650)">
+      <button
+        type="button"
+        onclick="agregarCarrito('Gorra Negra',650)"
+      >
         Comprar
       </button>
 
@@ -55,7 +87,8 @@
   </div>
 
   <!-- GORRA 3 -->
-  <div class="gorra">
+
+  <div class="gorra snapback">
 
     <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?q=80&w=1200&auto=format&fit=crop">
 
@@ -65,7 +98,10 @@
 
       <p class="precio">C$750</p>
 
-      <button onclick="agregarCarrito('Gorra Blanca',750)">
+      <button
+        type="button"
+        onclick="agregarCarrito('Gorra Blanca',750)"
+      >
         Comprar
       </button>
 
@@ -75,9 +111,13 @@
 
 </section>
 
+<!-- BOTON CARRITO -->
+
 <a href="carrito.html" class="carrito-btn">
   🛒 Ver Carrito
 </a>
+
+<!-- SCRIPT -->
 
 <script src="script.js"></script>
 
