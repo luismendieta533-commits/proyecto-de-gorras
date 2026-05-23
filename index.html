@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>LS CAPS</title>
+  <title>Urban Caps</title>
 
   <link rel="stylesheet" href="style.css">
 </head>
@@ -11,47 +11,35 @@
 
 <header>
   <h1>Urban Caps</h1>
-  <p>Tienda premium de gorras</p>
 </header>
-
-<section class="banner">
-  <h2>Las mejores gorras urbanas</h2>
-</section>
 
 <section class="productos">
 
   <div class="gorra">
     <img src="img/gorra1.jpg">
-    <div class="info">
-      <h3>Gorra Roja</h3>
-      <p class="precio">C$700</p>
-      <button onclick="comprar()">Comprar</button>
-    </div>
+    <h2>Gorra Roja</h2>
+    <p>C$700</p>
+
+    <button onclick="agregarCarrito('Gorra Roja',700)">
+      Comprar
+    </button>
   </div>
 
   <div class="gorra">
     <img src="img/gorra2.jpg">
-    <div class="info">
-      <h3>Gorra Negra</h3>
-      <p class="precio">C$650</p>
-      <button onclick="comprar()">Comprar</button>
-    </div>
-  </div>
+    <h2>Gorra Negra</h2>
+    <p>C$650</p>
 
-  <div class="gorra">
-    <img src="img/gorra3.jpg">
-    <div class="info">
-      <h3>Gorra Blanca</h3>
-      <p class="precio">C$750</p>
-      <button onclick="comprar()">Comprar</button>
-    </div>
+    <button onclick="agregarCarrito('Gorra Negra',650)">
+      Comprar
+    </button>
   </div>
 
 </section>
 
-<footer>
-  © 2026 Urban Caps
-</footer>
+<a href="carrito.html" class="carrito-btn">
+  Ver Carrito
+</a>
 
 <script src="script.js"></script>
 
