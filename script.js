@@ -2,19 +2,16 @@ let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
 function agregarCarrito(nombre, precio){
 
-  // Buscar si ya existe
   let productoExistente = carrito.find(
     producto => producto.nombre === nombre
   );
 
-  // Si existe, aumentar cantidad
   if(productoExistente){
 
     productoExistente.cantidad += 1;
 
   }else{
 
-    // Si no existe, agregar nuevo
     carrito.push({
       nombre: nombre,
       precio: precio,
@@ -23,7 +20,6 @@ function agregarCarrito(nombre, precio){
 
   }
 
-  // Guardar
   localStorage.setItem(
     "carrito",
     JSON.stringify(carrito)
@@ -73,6 +69,13 @@ function mostrarCarrito(){
 
         <p>Subtotal: C$${subtotal}</p>
 
+        <button
+          class="eliminar"
+          onclick="eliminarProducto(${index})"
+        >
+          Eliminar
+        </button>
+
       </div>
 
     `;
@@ -95,7 +98,38 @@ function cambiarCantidad(index,cantidad){
   mostrarCarrito();
 }
 
+function eliminarProducto(index){
+
+  carrito.splice(index,1);
+
+  localStorage.setItem(
+    "carrito",
+    JSON.stringify(carrito)
+  );
+
+  mostrarCarrito();
+}
+
+function vaciarCarrito(){
+
+  carrito = [];
+
+  localStorage.setItem(
+    "carrito",
+    JSON.stringify(carrito)
+  );
+
+  mostrarCarrito();
+}
+
 function enviarWhatsApp(){
+
+  if(carrito.length === 0){
+
+    alert("El carrito está vacío");
+
+    return;
+  }
 
   let mensaje =
     "Hola, quiero comprar:%0A%0A";
@@ -113,7 +147,8 @@ function enviarWhatsApp(){
 
   mensaje += `%0ATotal: C$${total}`;
 
-  let numero = "50586041850";
+  // CAMBIA ESTE NÚMERO
+  let numero = "50588888888";
 
   window.open(
     `https://wa.me/${numero}?text=${mensaje}`,
