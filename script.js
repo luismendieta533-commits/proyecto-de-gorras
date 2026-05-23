@@ -1,8 +1,201 @@
 let carrito =
 JSON.parse(localStorage.getItem("carrito")) || [];
 
+let adminActivo = false;
+
 /* =========================
-   AGREGAR AL CARRITO
+   PRODUCTOS
+========================= */
+
+const productos = [
+  "Gorra Roja",
+  "Gorra Negra"
+];
+
+/* =========================
+   CARGAR STOCK GUARDADO
+========================= */
+
+window.onload = function(){
+
+  cargarStock();
+
+  mostrarCarrito();
+
+}
+
+/* =========================
+   GUARDAR STOCK
+========================= */
+
+function guardarStock(nombre,agotado){
+
+  localStorage.setItem(
+    "stock_" + nombre,
+    agotado
+  );
+
+}
+
+/* =========================
+   CARGAR STOCK
+========================= */
+
+function cargarStock(){
+
+  let tarjetas =
+  document.querySelectorAll(".gorra");
+
+  tarjetas.forEach(producto=>{
+
+    let nombre =
+    producto.querySelector("h2").innerText;
+
+    let agotado =
+    localStorage.getItem(
+      "stock_" + nombre
+    );
+
+    let botonComprar =
+    producto.querySelector(".comprar");
+
+    if(agotado === "true"){
+
+      producto.classList.add("agotada");
+
+      botonComprar.innerText =
+      "Agotada";
+
+      botonComprar.disabled = true;
+
+      botonComprar.classList.add("sin-stock");
+
+    }
+
+  });
+
+}
+
+/* =========================
+   MODO ADMIN
+========================= */
+
+function modoAdmin(){
+
+  if(adminActivo){
+
+    salirAdmin();
+
+    return;
+  }
+
+  let password =
+  prompt("Ingrese contraseña admin");
+
+  if(password !== "1234"){
+
+    alert("Contraseña incorrecta");
+
+    return;
+  }
+
+  adminActivo = true;
+
+  alert("Modo admin activado");
+
+  mostrarBotonesAdmin();
+
+}
+
+/* =========================
+   SALIR ADMIN
+========================= */
+
+function salirAdmin(){
+
+  adminActivo = false;
+
+  let botones =
+  document.querySelectorAll(".admin-stock");
+
+  botones.forEach(boton=>{
+
+    boton.remove();
+
+  });
+
+  alert("Modo admin desactivado");
+
+}
+
+/* =========================
+   MOSTRAR BOTONES ADMIN
+========================= */
+
+function mostrarBotonesAdmin(){
+
+  let productos =
+  document.querySelectorAll(".gorra");
+
+  productos.forEach(producto=>{
+
+    if(producto.querySelector(".admin-stock"))
+    return;
+
+    let boton =
+    document.createElement("button");
+
+    boton.innerText =
+    "Cambiar Stock";
+
+    boton.classList.add("admin-stock");
+
+    boton.onclick = function(){
+
+      producto.classList.toggle("agotada");
+
+      let botonComprar =
+      producto.querySelector(".comprar");
+
+      let nombre =
+      producto.querySelector("h2").innerText;
+
+      if(producto.classList.contains("agotada")){
+
+        botonComprar.innerText =
+        "Agotada";
+
+        botonComprar.disabled = true;
+
+        botonComprar.classList.add("sin-stock");
+
+        guardarStock(nombre,true);
+
+      }else{
+
+        botonComprar.innerText =
+        "Comprar";
+
+        botonComprar.disabled = false;
+
+        botonComprar.classList.remove("sin-stock");
+
+        guardarStock(nombre,false);
+
+      }
+
+    };
+
+    producto
+    .querySelector(".info")
+    .appendChild(boton);
+
+  });
+
+}
+
+/* =========================
+   AGREGAR CARRITO
 ========================= */
 
 function agregarCarrito(nombre,precio){
@@ -31,7 +224,8 @@ function agregarCarrito(nombre,precio){
     JSON.stringify(carrito)
   );
 
-  alert("Producto agregado al carrito");
+  alert("Producto agregado");
+
 }
 
 /* =========================
@@ -50,83 +244,15 @@ function filtrar(categoria){
       producto.classList.contains(categoria)
     ){
 
-      producto.style.display = "block";
+      producto.style.display =
+      "block";
 
     }else{
 
-      producto.style.display = "none";
+      producto.style.display =
+      "none";
 
     }
-
-  });
-
-}
-
-/* =========================
-   MODO ADMIN
-========================= */
-
-function modoAdmin(){
-
-  let password =
-  prompt("Lscaps");
-
-  if(password !== "1234"){
-
-    alert("Contraseña incorrecta");
-
-    return;
-  }
-
-  alert("Modo admin activado");
-
-  let productos =
-  document.querySelectorAll(".gorra");
-
-  productos.forEach(producto=>{
-
-    if(producto.querySelector(".admin-stock"))
-    return;
-
-    let boton =
-    document.createElement("button");
-
-    boton.innerText =
-    "Cambiar Stock";
-
-    boton.classList.add("admin-stock");
-
-    boton.onclick = function(){
-
-      producto.classList.toggle("agotada");
-
-      let botonComprar =
-      producto.querySelector(".comprar");
-
-      if(producto.classList.contains("agotada")){
-
-        botonComprar.innerText =
-        "Agotada";
-
-        botonComprar.disabled = true;
-
-        botonComprar.classList.add("sin-stock");
-
-      }else{
-
-        botonComprar.innerText =
-        "Comprar";
-
-        botonComprar.disabled = false;
-
-        botonComprar.classList.remove("sin-stock");
-      }
-
-    };
-
-    producto
-    .querySelector(".info")
-    .appendChild(boton);
 
   });
 
@@ -216,6 +342,7 @@ function cambiarCantidad(index,cantidad){
   );
 
   mostrarCarrito();
+
 }
 
 /* =========================
@@ -232,6 +359,7 @@ function eliminarProducto(index){
   );
 
   mostrarCarrito();
+
 }
 
 /* =========================
@@ -248,6 +376,7 @@ function vaciarCarrito(){
   );
 
   mostrarCarrito();
+
 }
 
 /* =========================
@@ -286,9 +415,3 @@ function enviarWhatsApp(numero){
   );
 
 }
-
-/* =========================
-   AUTO CARGAR
-========================= */
-
-mostrarCarrito();
