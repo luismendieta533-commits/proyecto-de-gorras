@@ -1,87 +1,70 @@
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-}
-
 body{
   font-family:Arial;
   background:#111;
   color:white;
+  margin:0;
 }
 
 header{
   background:black;
   text-align:center;
-  padding:25px;
-}
-
-header h1{
-  color:#ff3c00;
-  font-size:40px;
-}
-
-.banner{
-  height:400px;
-  background:url('https://images.unsplash.com/photo-1521369909029-2afed882baee?q=80&w=1200&auto=format&fit=crop') center/cover;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-}
-
-.banner h2{
-  background:rgba(0,0,0,0.6);
   padding:20px;
-  border-radius:15px;
-  font-size:45px;
 }
 
 .productos{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:25px;
-  padding:40px 20px;
+  gap:20px;
+  padding:20px;
 }
 
 .gorra{
-  background:#1d1d1d;
-  border-radius:20px;
+  background:#1e1e1e;
+  border-radius:15px;
   overflow:hidden;
-  transition:0.3s;
-}
-
-.gorra:hover{
-  transform:translateY(-10px);
+  text-align:center;
+  padding-bottom:20px;
 }
 
 .gorra img{
   width:100%;
-  height:280px;
+  height:250px;
   object-fit:cover;
-}
-
-.info{
-  padding:20px;
-  text-align:center;
-}
-
-.precio{
-  color:#ff3c00;
-  margin:10px 0;
-  font-size:22px;
 }
 
 button{
   background:#ff3c00;
   color:white;
   border:none;
-  padding:12px 25px;
+  padding:12px 20px;
   border-radius:10px;
   cursor:pointer;
 }
 
-footer{
-  background:black;
-  text-align:center;
-  padding:25px;
+.carrito-btn{
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  background:#25D366;
+  padding:15px;
+  border-radius:50px;
+  color:white;
+  text-decoration:none;
+}
+
+.item{
+  background:#1d1d1d;
+  margin:20px;
+  padding:20px;
+  border-radius:15px;
+}
+
+input{
+  width:60px;
+  padding:5px;
+}
+
+.whatsapp{
+  margin:20px;
+  background:#25D366;
 }
