@@ -10,38 +10,26 @@
 <body>
 
 <header>
-  <h1>Carrito</h1>
+  <h1>Carrito de Compras</h1>
 </header>
 
 <div id="carrito"></div>
 
-<script>
+<h2 id="total"></h2>
 
-let carrito =
-JSON.parse(localStorage.getItem("carrito")) || [];
+<div class="botones">
 
-let contenedor =
-document.getElementById("carrito");
+  <button class="vaciar" onclick="vaciarCarrito()">
+    Vaciar Carrito
+  </button>
 
-carrito.forEach(producto => {
+  <button class="whatsapp" onclick="enviarWhatsApp()">
+    Comprar por WhatsApp
+  </button>
 
-  contenedor.innerHTML += `
-  
-    <div class="item">
+</div>
 
-      <h2>${producto.nombre}</h2>
-
-      <p>Precio: C$${producto.precio}</p>
-
-      <p>Cantidad: ${producto.cantidad}</p>
-
-    </div>
-
-  `;
-
-});
-
-</script>
+<script src="script.js"></script>
 
 </body>
 </html>
