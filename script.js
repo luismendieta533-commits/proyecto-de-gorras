@@ -1,5 +1,7 @@
 let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
+/* AGREGAR PRODUCTOS */
+
 function agregarCarrito(nombre, precio){
 
   let productoExistente = carrito.find(
@@ -13,9 +15,9 @@ function agregarCarrito(nombre, precio){
   }else{
 
     carrito.push({
-      nombre: nombre,
-      precio: precio,
-      cantidad: 1
+      nombre,
+      precio,
+      cantidad:1
     });
 
   }
@@ -27,6 +29,8 @@ function agregarCarrito(nombre, precio){
 
   alert("Producto agregado al carrito");
 }
+
+/* MOSTRAR CARRITO */
 
 function mostrarCarrito(){
 
@@ -85,6 +89,8 @@ function mostrarCarrito(){
     "Total: C$" + total;
 }
 
+/* CAMBIAR CANTIDAD */
+
 function cambiarCantidad(index,cantidad){
 
   carrito[index].cantidad =
@@ -98,6 +104,8 @@ function cambiarCantidad(index,cantidad){
   mostrarCarrito();
 }
 
+/* ELIMINAR PRODUCTO */
+
 function eliminarProducto(index){
 
   carrito.splice(index,1);
@@ -109,6 +117,8 @@ function eliminarProducto(index){
 
   mostrarCarrito();
 }
+
+/* VACIAR CARRITO */
 
 function vaciarCarrito(){
 
@@ -122,7 +132,9 @@ function vaciarCarrito(){
   mostrarCarrito();
 }
 
-function enviarWhatsApp(){
+/* ENVIAR A WHATSAPP */
+
+function enviarWhatsApp(numero){
 
   if(carrito.length === 0){
 
@@ -147,13 +159,37 @@ function enviarWhatsApp(){
 
   mensaje += `%0ATotal: C$${total}`;
 
-  // CAMBIA ESTE NÚMERO
-  let numero = "50586041850";
-
   window.open(
     `https://wa.me/${numero}?text=${mensaje}`,
     "_blank"
   );
 }
 
+/* MOSTRAR AUTOMÁTICAMENTE */
+
 mostrarCarrito();
+
+/* FILTROS */
+
+function filtrar(categoria){
+
+  let productos =
+    document.querySelectorAll(".gorra");
+
+  productos.forEach(producto=>{
+
+    if(
+      categoria === "todas" ||
+      producto.classList.contains(categoria)
+    ){
+
+      producto.style.display = "block";
+
+    }else{
+
+      producto.style.display = "none";
+
+    }
+
+  });
+}
