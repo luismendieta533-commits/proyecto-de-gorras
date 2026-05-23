@@ -148,7 +148,7 @@ function enviarWhatsApp(){
   mensaje += `%0ATotal: C$${total}`;
 
   // CAMBIA ESTE NÚMERO
-  let numero = "50588888888";
+  let numero = "50586041850";
 
   window.open(
     `https://wa.me/${numero}?text=${mensaje}`,
