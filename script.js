@@ -69,7 +69,7 @@ function filtrar(categoria){
 function modoAdmin(){
 
   let password =
-  prompt("Ingrese contraseña admin");
+  prompt("Lscaps");
 
   if(password !== "1234"){
 
