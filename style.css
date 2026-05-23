@@ -5,140 +5,389 @@
 }
 
 body{
-  font-family:Arial;
+  font-family:Arial, sans-serif;
   background:#111;
   color:white;
 }
 
+/* HEADER */
+
 header{
   background:black;
   text-align:center;
-  padding:25px;
+  padding:30px 20px;
 }
 
 header h1{
   color:#ff3c00;
-  font-size:40px;
+  font-size:55px;
+  margin-bottom:10px;
 }
 
 header p{
-  margin-top:10px;
   color:#ccc;
+  font-size:22px;
 }
 
+/* CATEGORÍAS */
+
+.categorias{
+  padding:25px 20px;
+  text-align:center;
+}
+
+.titulo-categorias{
+  color:#ff3c00;
+  font-size:32px;
+  margin-bottom:20px;
+}
+
+/* CONTENEDOR BOTONES */
+
+.filtros{
+
+  display:flex;
+
+  justify-content:center;
+
+  align-items:center;
+
+  flex-wrap:wrap;
+
+  gap:15px;
+
+  margin-bottom:20px;
+}
+
+/* BOTONES FILTRO */
+
+.filtros button{
+
+  background:#1e1e1e;
+
+  color:white;
+
+  border:2px solid #ff3c00;
+
+  padding:12px 22px;
+
+  border-radius:50px;
+
+  font-size:16px;
+
+  cursor:pointer;
+
+  transition:0.3s;
+
+  min-width:140px;
+}
+
+.filtros button:hover{
+
+  background:#ff3c00;
+
+  transform:scale(1.05);
+}
+
+/* PRODUCTOS */
+
 .productos{
+
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+
+  grid-template-columns:
+  repeat(auto-fit,minmax(280px,1fr));
+
   gap:25px;
+
   padding:25px;
 }
 
+/* TARJETAS */
+
 .gorra{
+
   background:#1e1e1e;
-  border-radius:20px;
+
+  border-radius:25px;
+
   overflow:hidden;
+
   transition:0.3s;
 }
 
 .gorra:hover{
-  transform:translateY(-5px);
+
+  transform:translateY(-8px);
 }
 
+/* IMAGEN */
+
 .gorra img{
+
   width:100%;
-  height:280px;
+
+  height:330px;
+
   object-fit:cover;
 }
 
+/* INFO */
+
 .info{
-  padding:20px;
+
+  padding:25px;
+
   text-align:center;
 }
 
 .info h2{
-  margin-bottom:10px;
-}
 
-.precio{
-  color:#ff3c00;
-  font-size:25px;
+  font-size:42px;
+
   margin-bottom:15px;
 }
 
+/* PRECIO */
+
+.precio{
+
+  color:#ff3c00;
+
+  font-size:55px;
+
+  margin-bottom:25px;
+}
+
+/* BOTONES */
+
 button{
+
   border:none;
-  padding:12px 20px;
-  border-radius:10px;
+
+  padding:14px 28px;
+
+  border-radius:15px;
+
   cursor:pointer;
+
   color:white;
-  font-size:16px;
+
+  font-size:20px;
+
+  transition:0.3s;
 }
 
 button:hover{
+
   opacity:0.9;
 }
 
+/* BOTON COMPRAR */
+
 .info button{
+
   background:#ff3c00;
 }
 
+/* BOTON CARRITO */
+
 .carrito-btn{
+
   position:fixed;
+
   bottom:20px;
+
   right:20px;
+
   background:#25D366;
+
   color:white;
-  padding:15px 20px;
+
+  padding:16px 24px;
+
   border-radius:50px;
+
   text-decoration:none;
+
   font-weight:bold;
+
+  font-size:20px;
+
+  box-shadow:0 0 15px rgba(0,0,0,0.4);
 }
 
+/* ITEMS CARRITO */
+
 .item{
+
   background:#1e1e1e;
+
   margin:20px;
+
   padding:20px;
-  border-radius:15px;
+
+  border-radius:20px;
 }
 
 .item h2{
+
   margin-bottom:10px;
 }
 
 .item p{
-  margin:8px 0;
+
+  margin:10px 0;
 }
+
+/* INPUT CANTIDAD */
 
 input{
+
   width:70px;
-  padding:5px;
-  border-radius:5px;
+
+  padding:8px;
+
   border:none;
+
+  border-radius:8px;
+
+  text-align:center;
 }
 
+/* BOTON ELIMINAR */
+
 .eliminar{
+
   background:red;
+
   margin-top:10px;
 }
 
+/* TOTAL */
+
 #total{
+
   text-align:center;
+
   margin:20px;
+
   color:#25D366;
-  font-size:30px;
+
+  font-size:35px;
 }
+
+/* BOTONES ABAJO */
 
 .botones{
+
   display:flex;
+
   justify-content:center;
+
   gap:20px;
-  margin-bottom:40px;
+
+  margin-bottom:20px;
 }
 
+/* BOTON VACIAR */
+
+.vaciar{
+
+  background:red;
+}
+
+/* WHATSAPP */
+
+.titulo-wsp{
+
+  text-align:center;
+
+  margin-top:20px;
+
+  font-size:28px;
+}
+
+.wsp-opciones{
+
+  display:flex;
+
+  justify-content:center;
+
+  gap:20px;
+
+  flex-wrap:wrap;
+
+  margin:20px;
+}
+
+/* BOTON WHATSAPP */
+
 .whatsapp{
+
   background:#25D366;
 }
 
-.vaciar{
-  background:red;
+/* RESPONSIVE */
+
+@media(max-width:600px){
+
+  header h1{
+
+    font-size:38px;
+  }
+
+  header p{
+
+    font-size:18px;
+  }
+
+  .titulo-categorias{
+
+    font-size:26px;
+  }
+
+  .filtros{
+
+    justify-content:center;
+
+    gap:10px;
+  }
+
+  .filtros button{
+
+    min-width:120px;
+
+    font-size:15px;
+
+    padding:10px 16px;
+  }
+
+  .gorra img{
+
+    height:260px;
+  }
+
+  .info h2{
+
+    font-size:28px;
+  }
+
+  .precio{
+
+    font-size:40px;
+  }
+
+  button{
+
+    font-size:17px;
+  }
+
+  .carrito-btn{
+
+    font-size:18px;
+
+    padding:14px 20px;
+  }
+
 }
