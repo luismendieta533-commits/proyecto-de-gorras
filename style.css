@@ -1,0 +1,87 @@
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  font-family:Arial;
+  background:#111;
+  color:white;
+}
+
+header{
+  background:black;
+  text-align:center;
+  padding:25px;
+}
+
+header h1{
+  color:#ff3c00;
+  font-size:40px;
+}
+
+.banner{
+  height:400px;
+  background:url('https://images.unsplash.com/photo-1521369909029-2afed882baee?q=80&w=1200&auto=format&fit=crop') center/cover;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+.banner h2{
+  background:rgba(0,0,0,0.6);
+  padding:20px;
+  border-radius:15px;
+  font-size:45px;
+}
+
+.productos{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:25px;
+  padding:40px 20px;
+}
+
+.gorra{
+  background:#1d1d1d;
+  border-radius:20px;
+  overflow:hidden;
+  transition:0.3s;
+}
+
+.gorra:hover{
+  transform:translateY(-10px);
+}
+
+.gorra img{
+  width:100%;
+  height:280px;
+  object-fit:cover;
+}
+
+.info{
+  padding:20px;
+  text-align:center;
+}
+
+.precio{
+  color:#ff3c00;
+  margin:10px 0;
+  font-size:22px;
+}
+
+button{
+  background:#ff3c00;
+  color:white;
+  border:none;
+  padding:12px 25px;
+  border-radius:10px;
+  cursor:pointer;
+}
+
+footer{
+  background:black;
+  text-align:center;
+  padding:25px;
+}
