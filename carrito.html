@@ -1,27 +1,19 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Carrito</title>
+let carrito =
+JSON.parse(localStorage.getItem("carrito")) || [];
 
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
+function agregarCarrito(nombre, precio){
 
-<header>
-  <h1>Carrito de Compras</h1>
-</header>
+  carrito.push({
+    nombre: nombre,
+    precio: precio,
+    cantidad: 1
+  });
 
-<div id="carrito"></div>
+  localStorage.setItem(
+    "carrito",
+    JSON.stringify(carrito)
+  );
 
-<h2 id="total"></h2>
+  alert("Producto agregado al carrito");
 
-<button class="whatsapp" onclick="enviarWhatsApp()">
-  Comprar por WhatsApp
-</button>
-
-<script src="script.js"></script>
-
-</body>
-</html>
+}
