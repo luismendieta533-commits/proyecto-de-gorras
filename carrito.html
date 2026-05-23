@@ -1,19 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carrito</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <h1>Carrito</h1>
+</header>
+
+<div id="carrito"></div>
+
+<script>
+
 let carrito =
 JSON.parse(localStorage.getItem("carrito")) || [];
 
-function agregarCarrito(nombre, precio){
+let contenedor =
+document.getElementById("carrito");
 
-  carrito.push({
-    nombre: nombre,
-    precio: precio,
-    cantidad: 1
-  });
+carrito.forEach(producto => {
 
-  localStorage.setItem(
-    "carrito",
-    JSON.stringify(carrito)
-  );
+  contenedor.innerHTML += `
+  
+    <div class="item">
 
-  alert("Producto agregado al carrito");
+      <h2>${producto.nombre}</h2>
 
-}
+      <p>Precio: C$${producto.precio}</p>
+
+      <p>Cantidad: ${producto.cantidad}</p>
+
+    </div>
+
+  `;
+
+});
+
+</script>
+
+</body>
+</html>
